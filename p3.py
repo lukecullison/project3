@@ -1,5 +1,6 @@
 import sys
 import os
+import stat
 
 def readFile(infile, pattern):
     with open(infile) as f:
@@ -28,6 +29,11 @@ if __name__ == '__main__':
     i = 2
     if sys.argv[len(sys.argv) - 1] == '-c':
         while(i < len(sys.argv) - 1):
+            p = os.access(sys.argv[i], os.R_OK)
+            if p == False:
+                os.chmod(sys.argv[i], stat.S_IRGRP)
+                os.chmod(sys.argv[i], stat.S_IRUSR)
+                os.chmod(sys.argv[i], stat.S_IREAD)
             p = os.access(sys.argv[i], os.R_OK)
             if p == True:
                 readFile(sys.argv[i], sys.argv[1])
