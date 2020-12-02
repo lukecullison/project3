@@ -22,8 +22,24 @@ def readFile(infile, pattern):
             lin += 1
 
 if __name__ == '__main__':
-    #This is random text: randoms
-    # pattern = randoms len(randoms) = 7
-    path1 = os.access(sys.argv[1], os.R_OK)
-    print("Exists the path:", path1)
-    readFile(sys.argv[1], sys.argv[2])
+    if len(sys.argv) < 3:
+        print('Usage: python3 p3.py "pattern" "file1" "file2" [-c]')
+        exit()
+    i = 2
+    if sys.argv[len(sys.argv) - 1] == '-c':
+        while(i < len(sys.argv) - 1):
+            p = os.access(sys.argv[i], os.R_OK)
+            if p == True:
+                readFile(sys.argv[i], sys.argv[1])
+            else:
+                print("Invalid file name or file path")
+            i += 1
+        exit()
+    while(i < len(sys.argv)):
+        while(i < len(sys.argv)):
+            p = os.access(sys.argv[i], os.R_OK)
+            if p == True:
+                readFile(sys.argv[i], sys.argv[1])
+            else:
+                print("Invalid file name or file path")
+            i += 1
