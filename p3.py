@@ -53,7 +53,7 @@ if __name__ == '__main__':
             i += 1
         if changed == False:
             print("No file permissions were modified")
-        print("Summary: " + str(pcount) + " matche(s) found in " + str(len(sys.argv) - 3) + " files")
+        print("Summary: " + str(pcount) + " match(es) found in " + str(len(sys.argv) - 3) + " file(s)")
         exit()
     while(i < len(sys.argv)):
         p = os.access(sys.argv[i], os.R_OK)
@@ -63,4 +63,4 @@ if __name__ == '__main__':
             print("Invalid file name or file path")
         i += 1
     print("No file permissions were modified")
-    print("Summary: " + str(pcount) + " matche(s) found in " + str(len(sys.argv) - 2) + " files")
+    print("Summary: " + str(pcount) + " match(es) found in " + str(len(sys.argv) - 2) + " files(s)")
