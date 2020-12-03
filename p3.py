@@ -13,11 +13,12 @@ def readFile(infile, pattern):
                     p = pattern[i]
                     if(p == char):
                         if len(pattern) == i + 1:
-                            print("line: " + str(lin) + ", column: " + str(col - i))
+                            print(infile + ": found " + pattern + " on line: " + str(lin) + ", column: " + str(col - i))
                             i = 0
+                        else:
+                            i += 1
                     else:
                         i = 0
-                    i += 1
                     col += 1
                 col = 0
             lin += 1
